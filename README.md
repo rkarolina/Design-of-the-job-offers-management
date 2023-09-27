@@ -11,7 +11,7 @@ Below you can find SQL code and some diagrams.
 
 ###  Database
 
-_[Entity-relationship diagram - SQL](https://github.com/rkarolina/job-offers-management-system/blob/main/5%20-%20za%C5%82%C4%85cznik%20-Diagram%20zwi%C4%85zk%C3%B3w%20encji.pdf)_ <br>
+_[Entity-relationship diagram - SQL](https://github.com/rkarolina/job-offers-management-system/blob/main/Diagram%20zwi%C4%85zk%C3%B3w%20encji.pdf)_ <br>
 _[Table creation](https://github.com/rkarolina/job-offers-management-system/blob/main/tworzenieTabel.sql)_ <br>
 _[Fullfilling data to the tables - example 1](https://github.com/rkarolina/job-offers-management-system/blob/main/Wstawnianie%20wierszy%20do%20tabeli%20AdresFirmy.sql)_<br>
 _[Fullfilling data to the tables - example 2](https://github.com/rkarolina/job-offers-management-system/blob/main/Wstawnianie%20wierszy%20do%20tabeli%20Pracodawca.sql)_<br>
