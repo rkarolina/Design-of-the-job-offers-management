@@ -48,20 +48,25 @@ WHERE WorkMode.Name = 'Remote';
 
 _I want to display all 'B2B' offers in the database only with job title, salary, requirements and start date_
 ```
-SELECT JobDetails.JobTitle, JobDetails.MinSalary, JobDetails.MaxSalary, JobDetails.Requirements, JobDetails.StartDate
+SELECT 
+JobDetails.JobTitle, JobDetails.MinSalary, JobDetails.MaxSalary, 
+JobDetails.Requirements, JobDetails.StartDate
 FROM JobDetails
 JOIN EmploymentType ON EmploymentType.Id = JobDetails.EmploymentType
 WHERE EmploymentType.Name = 'B2B';
 ```
 
-_I want to display [and save to the view] who applied for a 'Team Leader' Position - first&last name (of the candidate from [User] table) 
+_I want to display [and save to the view] who applied for a 'Team Leader' Position: <br>
+first&last name (of the candidate from [User] table) 
 with status of the application in the system and estimated date of starting work in the company._
 ```
 USE JobOffersManagementSystem
 GO
 CREATE OR ALTER VIEW StatusOfTeamLeaderApplications
 AS
-SELECT [User].FirstName, [User].LastName, ApplicationStatus.[Status], JobDetails.JobTitle, JobDetails.StartDate AS EstimatedStartDate
+SELECT 
+[User].FirstName, [User].LastName, ApplicationStatus.[Status], 
+JobDetails.JobTitle, JobDetails.StartDate AS EstimatedStartDate
 FROM JobApplication
 INNER JOIN [User] ON JobApplication.CandidateId=[User].Id
 INNER JOIN ApplicationStatus ON  JobApplication.StatusId=ApplicationStatus.Id
@@ -81,7 +86,9 @@ WHERE UserId = 3 AND CompanyName = 'KPMG' OR CompanyName = 'ATZ';
 
 _I want to see details about previous education and experience of all the users in the database_
 ```
-SELECT [User].FirstName, [User].LastName, [User].Email, Education.EducationType, PreviousExperience.CompanyName, PreviousExperience.StartDate, PreviousExperience.EndDate
+SELECT 
+[User].FirstName, [User].LastName, [User].Email, Education.EducationType, 
+PreviousExperience.CompanyName, PreviousExperience.StartDate, PreviousExperience.EndDate
 FROM [User]
 LEFT JOIN Education ON [User].Id=Education.UserId
 LEFT JOIN PreviousExperience ON [User].Id=PreviousExperience.UserId;
@@ -89,14 +96,17 @@ LEFT JOIN PreviousExperience ON [User].Id=PreviousExperience.UserId;
 
 _I want to display all candidates with their ratings_
 ```
-SELECT [User].FirstName, [User].LastName, [User].Email, [User].Phone, CandidateRating.Rating, CandidateRating.Opinion
+SELECT 
+[User].FirstName, [User].LastName, [User].Email, 
+[User].Phone, CandidateRating.Rating, CandidateRating.Opinion
 FROM CandidateRating
 RIGHT JOIN [User] ON CandidateRating.CandidateId=[User].Id
 ORDER BY Rating ASC;
 ```
 
-_If I use key word (e.g. ADMIN, CASE, CAST, CATALOG, CLASS, TYPE, USER) for database I need to put it in 
-square brackets [] or quotation marks "" _
+_If I use key word (e.g. ADMIN, CASE, CAST, CATALOG, CLASS, TYPE, USER) <br>
+for database I need to put it in 
+square brackets [ ] (for T-SQL) or quotation marks ""_
 ```
 SELECT DISTINCT JobTitle FROM JobDetails;
 SELECT * FROM [User]
